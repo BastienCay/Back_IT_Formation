@@ -1,9 +1,10 @@
 package com.bac.itformation.repository;
 
 import com.bac.itformation.model.Adresse;
+import com.bac.itformation.model.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SessionRepository extends JpaRepository<Adresse, Long> {
+public interface SessionRepository extends JpaRepository<Session, Long> {
 }
