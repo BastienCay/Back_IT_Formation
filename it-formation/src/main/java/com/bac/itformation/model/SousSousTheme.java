@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Sous_Sous_Theme {
+public class SousSousTheme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String designation;
     @ManyToOne
-    private Sous_Theme sousTheme;
+    private SousTheme sousTheme;
 
 }

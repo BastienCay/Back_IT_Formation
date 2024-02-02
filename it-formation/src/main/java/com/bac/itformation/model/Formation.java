@@ -34,5 +34,5 @@ public class Formation {
     private Adresse adresse;
 
     @OneToMany
-    private List<Sous_Theme> sousThemes;
+    private List<SousTheme> sousThemes;
 }

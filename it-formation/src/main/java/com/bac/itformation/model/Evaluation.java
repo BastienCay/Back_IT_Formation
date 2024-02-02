@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @IdClass(Evaluation.class)
+/**
+ * Entite permettant la representation d'une évaluation pour un utilisateur sur une formation
+ */
 public class Evaluation {
 
     @Id
