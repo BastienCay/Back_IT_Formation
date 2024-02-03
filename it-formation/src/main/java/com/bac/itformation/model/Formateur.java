@@ -23,6 +23,6 @@ public class Formateur {
     @Size(min = 2, max = 50)
     private String prenom;
 
-    @OneToMany
+    @ManyToOne
     private Compte compte;
 }

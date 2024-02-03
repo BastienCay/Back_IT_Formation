@@ -30,7 +30,7 @@ public class Formation {
 
     private String metiers;
 
-    @OneToMany
+    @ManyToOne
     private Adresse adresse;
 
     @OneToMany

@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 public class Evaluation {
 
     @Id
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "idUser")
     private Long id_User;
     @Id
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "idSession")
     private Long id_Session;
 

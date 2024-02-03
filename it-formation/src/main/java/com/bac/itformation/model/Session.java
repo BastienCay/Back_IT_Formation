@@ -34,6 +34,6 @@ public class Session {
     private List<User> users;
 
     @NotBlank
-    @OneToMany
+    @ManyToOne
     private Formation formation;
 }

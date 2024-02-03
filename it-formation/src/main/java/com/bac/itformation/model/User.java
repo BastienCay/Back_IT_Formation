@@ -29,6 +29,6 @@ public class User {
     @NotBlank
     private String telephone;
 
-    @OneToMany
+    @ManyToOne
     private Compte compte;
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/themes")
+@RequestMapping("/users")
 @CrossOrigin
 public class UserController {
 
