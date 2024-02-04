@@ -2,6 +2,7 @@ package com.bac.itformation.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,13 +18,13 @@ public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_session;
 
-    @NotBlank
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dateDebut;
 
-    @NotBlank
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dateFin;
 
@@ -33,7 +34,7 @@ public class Session {
     @ManyToOne
     private List<User> users;
 
-    @NotBlank
+    @NotNull
     @ManyToOne
     private Formation formation;
 }

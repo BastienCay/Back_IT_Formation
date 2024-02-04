@@ -2,6 +2,7 @@ package com.bac.itformation.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,17 +19,17 @@ public class Compte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_compte;
 
-    @NotBlank
+    @NotNull
     @Size(min = 8, max = 50)
     private String motDePasse;
 
-    @NotBlank
+    @NotNull
     @Size(min = 8, max = 50)
     private String identifiant;
 
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TypeDeCompte typeDeCompte;
 

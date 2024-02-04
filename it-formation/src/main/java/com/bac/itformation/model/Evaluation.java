@@ -18,17 +18,19 @@ public class Evaluation {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Long id_User;
+    @JoinColumn(name = "id_user")
+    private Long userId;
     @Id
     @ManyToOne
-    @JoinColumn(name = "idSession")
-    private Long id_Session;
+    @JoinColumn(name = "id_session")
+    private Long sessionId;
 
     @Size(min = 1, max = 5)
     private Integer moyenneLocaux;
+
     @Size(min = 1, max = 5)
     private Integer moyenneFormation;
+
     @Size(min = 1, max = 5)
     private Integer moyenneFormateur;
 
