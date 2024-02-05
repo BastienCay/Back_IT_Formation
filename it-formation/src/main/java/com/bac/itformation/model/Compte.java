@@ -19,7 +19,7 @@ public class Compte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_compte;
+    private Long id;
 
     @NotNull
     @Size(min = 8, max = 50)

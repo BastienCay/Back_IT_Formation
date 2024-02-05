@@ -36,7 +36,6 @@ public class Formation {
 
     @ManyToOne
     private Adresse adresse;
-
     @OneToMany
     private List<SousTheme> sousThemes;
 }
