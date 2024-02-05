@@ -1,11 +1,9 @@
 package com.bac.itformation.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,16 +21,20 @@ public class Adresse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+
+    @NotNull
     @Size(min = 0,max = 5)
     private String codePostal;
-    @NotBlank
+
+    @NotNull
     @Max(50)
     private String ville;
-    @NotBlank
+
+    @NotNull
     @Max(50)
     private String rue;
-    @NotBlank
+
+    @NotNull
     @Max(50)
     private String pays;
 }

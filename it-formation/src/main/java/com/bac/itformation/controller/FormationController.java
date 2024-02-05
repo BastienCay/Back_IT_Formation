@@ -1,6 +1,7 @@
 package com.bac.itformation.controller;
 
 import com.bac.itformation.model.Formation;
+import com.bac.itformation.service.FormationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.List;
 @CrossOrigin
 public class FormationController {
 
-    private final FormationController formationService;
+    private final FormationService formationService;
 
-    public FormationController(FormationController formationService) {
+    public FormationController(FormationService formationService) {
         this.formationService = formationService;
     }
 
