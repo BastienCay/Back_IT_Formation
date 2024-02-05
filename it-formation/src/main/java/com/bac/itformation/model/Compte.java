@@ -31,6 +31,6 @@ public class Compte {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private TypeDeCompte typeDeCompte;
+    private TypeDeCompte typeCompte;
 
 }

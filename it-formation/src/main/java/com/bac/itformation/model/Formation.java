@@ -26,7 +26,7 @@ public class Formation {
 
     @NotNull
     @Size(min = 10, max = 100)
-    private String description;
+    private String descript;
 
     @NotNull
     @Enumerated(EnumType.STRING)
