@@ -29,6 +29,10 @@ public class Formation {
     private String descript;
 
     @NotNull
+    @Size(min = 120, max = 10000)
+    private Integer prix;
+
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TypeCertification typeCertification;
 
