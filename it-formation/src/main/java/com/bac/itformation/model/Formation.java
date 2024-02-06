@@ -25,7 +25,7 @@ public class Formation {
     private String nom;
 
     @NotNull
-    @Size(min = 10, max = 250)
+    @Size(min = 10, max = 500)
     private String descript;
 
     @NotNull
