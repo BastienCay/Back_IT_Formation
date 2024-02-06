@@ -32,10 +32,10 @@ public class Session {
     @ManyToOne
     private Formation formation;
 
-    @OneToMany
-    private List<Formateur> formateurs;
+    @ManyToOne
+    private Formateur formateur;
 
-    @OneToMany
-    private List<User> users;
+    @ManyToOne
+    private User user;
 
 }

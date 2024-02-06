@@ -25,7 +25,7 @@ public class Formation {
     private String nom;
 
     @NotNull
-    @Size(min = 10, max = 100)
+    @Size(min = 10, max = 250)
     private String descript;
 
     @NotNull
@@ -36,6 +36,7 @@ public class Formation {
 
     @ManyToOne
     private Adresse adresse;
-    @OneToMany
-    private List<SousTheme> sousThemes;
+
+    @ManyToOne
+    private SousTheme sousTheme;
 }
