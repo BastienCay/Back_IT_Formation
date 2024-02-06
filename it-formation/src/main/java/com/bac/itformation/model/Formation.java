@@ -33,6 +33,19 @@ public class Formation {
     private Integer prix;
 
     @NotNull
+    @Size(min = 6, max = 6)
+    @Column(name = "refer")
+    private String reference;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private TypeFormation typeFormation;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private PreRequis preRequis;
+
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TypeCertification typeCertification;
 

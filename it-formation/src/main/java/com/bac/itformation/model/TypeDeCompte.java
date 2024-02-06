@@ -2,17 +2,8 @@ package com.bac.itformation.model;
 
 public enum TypeDeCompte {
 
-    Users_Normal('u'),
-    Admin('a'),
-    Formateur('f');
+    Users_Normal,
+    Admin,
+    Formateur;
 
-    private char lettreTypeDeCompte;
-
-    TypeDeCompte(char lettreTypeDeCompte) {
-        this.lettreTypeDeCompte = lettreTypeDeCompte;
-    }
-
-    public char getLettreTypeDeCompte() {
-        return lettreTypeDeCompte;
-    }
 }
