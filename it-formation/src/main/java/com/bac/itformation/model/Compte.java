@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * Entite permettant la representation du compte d'un utilisateur avec un certain niveau d'autorisation
  */
@@ -19,7 +21,7 @@ public class Compte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_compte;
 
     @NotNull
     @Size(min = 8, max = 50)
@@ -33,4 +35,6 @@ public class Compte {
     @Enumerated(EnumType.STRING)
     private TypeDeCompte typeCompte;
 
+    @ManyToOne
+    private Utilisateur utilisateur;
 }

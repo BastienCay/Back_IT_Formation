@@ -1,8 +1,6 @@
 package com.bac.itformation.controller;
 
-import com.bac.itformation.model.Compte;
-import com.bac.itformation.model.Evaluation;
-import com.bac.itformation.service.CompteService;
+import com.bac.itformation.model.EvaluationStagiaire;
 import com.bac.itformation.service.EvaluationService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +18,18 @@ public class EvaluationController {
     }
 
     @GetMapping("/all")
-    public List<Evaluation> findAll() {
+    public List<EvaluationStagiaire> findAll() {
         return evaluationService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Evaluation findById(@PathVariable Long id) {
+    public EvaluationStagiaire findById(@PathVariable Long id) {
         return evaluationService.findById(id);
     }
 
     @PostMapping("/add")
-    public Evaluation save(@RequestBody Evaluation evaluation) {
-        return evaluationService.save(evaluation);
+    public EvaluationStagiaire save(@RequestBody EvaluationStagiaire evaluationStagiaire) {
+        return evaluationService.save(evaluationStagiaire);
     }
 
     @DeleteMapping("/delete/all")
@@ -45,7 +43,7 @@ public class EvaluationController {
     }
 
     @PatchMapping("/update")
-    public Evaluation update(@RequestBody Evaluation evaluation) {
-        return evaluationService.update(evaluation);
+    public EvaluationStagiaire update(@RequestBody EvaluationStagiaire evaluationStagiaire) {
+        return evaluationService.update(evaluationStagiaire);
     }
 }
