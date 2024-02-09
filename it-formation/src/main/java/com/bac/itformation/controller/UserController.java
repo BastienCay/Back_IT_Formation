@@ -1,7 +1,6 @@
 package com.bac.itformation.controller;
 
-import com.bac.itformation.model.User;
-import com.bac.itformation.service.UserService;
+import com.bac.itformation.model.Utilisateur;
 import com.bac.itformation.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,18 +18,18 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public List<User> findAll() {
+    public List<Utilisateur> findAll() {
         return userService.findAll();
     }
 
     @GetMapping("/{id}")
-    public User findById(@PathVariable Long id) {
+    public Utilisateur findById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
     @PostMapping("/add")
-    public User save(@RequestBody User user) {
-        return userService.save(user);
+    public Utilisateur save(@RequestBody Utilisateur utilisateur) {
+        return userService.save(utilisateur);
     }
 
     @DeleteMapping("/delete/all")
@@ -44,7 +43,7 @@ public class UserController {
     }
 
     @PatchMapping("/update")
-    public User update(@RequestBody User user) {
-        return userService.update(user);
+    public Utilisateur update(@RequestBody Utilisateur utilisateur) {
+        return userService.update(utilisateur);
     }
 }

@@ -1,9 +1,7 @@
 package com.bac.itformation.service;
 
 import com.bac.itformation.exception.NotFoundException;
-import com.bac.itformation.model.User;
-import com.bac.itformation.model.User;
-import com.bac.itformation.repository.UserRepository;
+import com.bac.itformation.model.Utilisateur;
 import com.bac.itformation.repository.UserRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -21,19 +19,19 @@ public class UserService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<User> findAll() {
+    public List<Utilisateur> findAll() {
         return userRepository.findAll();
     }
 
-    public User findById(Long id) {
+    public Utilisateur findById(Long id) {
         return userRepository.findById(id).orElseThrow( () -> new NotFoundException("User inconnue !"));
     }
 
-    public User save(User user) { return userRepository.save(user);}
+    public Utilisateur save(Utilisateur utilisateur) { return userRepository.save(utilisateur);}
 
 
-    public User update(User user) {
-        return userRepository.save(user);
+    public Utilisateur update(Utilisateur utilisateur) {
+        return userRepository.save(utilisateur);
     }
 
     public void deleteById(Long id) {

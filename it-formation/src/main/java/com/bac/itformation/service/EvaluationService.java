@@ -1,7 +1,7 @@
 package com.bac.itformation.service;
 
 import com.bac.itformation.exception.NotFoundException;
-import com.bac.itformation.model.Evaluation;
+import com.bac.itformation.model.EvaluationStagiaire;
 import com.bac.itformation.repository.EvaluationRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,19 +16,19 @@ public class EvaluationService {
         this.evaluationRepository = evaluationRepository;
     }
 
-    public List<Evaluation> findAll() {
+    public List<EvaluationStagiaire> findAll() {
         return evaluationRepository.findAll();
     }
 
-    public Evaluation findById(Long id) {
+    public EvaluationStagiaire findById(Long id) {
         return evaluationRepository.findById(id).orElseThrow( () -> new NotFoundException("Evaluation inconnue !"));
     }
 
-    public Evaluation save(Evaluation evaluation) { return evaluationRepository.save(evaluation);}
+    public EvaluationStagiaire save(EvaluationStagiaire evaluationStagiaire) { return evaluationRepository.save(evaluationStagiaire);}
 
 
-    public Evaluation update(Evaluation evaluation) {
-        return evaluationRepository.save(evaluation);
+    public EvaluationStagiaire update(EvaluationStagiaire evaluationStagiaire) {
+        return evaluationRepository.save(evaluationStagiaire);
     }
 
     public void deleteById(Long id) {

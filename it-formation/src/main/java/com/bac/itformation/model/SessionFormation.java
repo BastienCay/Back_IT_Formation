@@ -7,7 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
+/**
+ * Entite permettant de représenter une session d'une formation comprenant une date de début,
+ * une date de fin, une formation, une liste de formateurs et une liste de stagiaire
+ */
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,7 +21,7 @@ public class SessionFormation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_session;
+    private Long sessionFormationId;
 
     @NotNull
     @Temporal(TemporalType.DATE)
@@ -30,10 +35,18 @@ public class SessionFormation {
     @ManyToOne
     private Formation formation;
 
-    @ManyToOne
-    private Formateur formateur;
+    @ManyToMany
+    @JoinTable(
+            name = "formateur_session_formations",
+            joinColumns = @JoinColumn(name = "session_formation_id"),
+            inverseJoinColumns = @JoinColumn(name = "formateur_id"))
+    private List<Formateur> formateurs;
 
-    @ManyToOne
-    private User user;
+    @ManyToMany
+    @JoinTable(
+            name = "stagiaire_session_formation",
+            joinColumns = @JoinColumn(name = "session_formation_id"),
+            inverseJoinColumns = @JoinColumn(name = "stagiaire_id"))
+    private List<Stagiaire> stagiaires;
 
 }
