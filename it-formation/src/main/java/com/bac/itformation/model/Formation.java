@@ -33,6 +33,10 @@ public class Formation {
     private Integer prix;
 
     @NotNull
+    @Size(min = 1, max = 1000)
+    private Integer nbrJour;
+
+    @NotNull
     @Size(min = 6, max = 6)
     @Column(name = "refer")
     private String reference;
