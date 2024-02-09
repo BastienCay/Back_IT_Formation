@@ -25,8 +25,12 @@ public class Formation {
     private String nom;
 
     @NotNull
-    @Size(min = 10, max = 500)
-    private String descript;
+    @Size(min = 10, max = 200)
+    private String descriptionMinimum;
+
+    @NotNull
+    @Size(min = 10, max = 600)
+    private String descriptionDetailler;
 
     @NotNull
     @Size(min = 120, max = 10000)
@@ -53,6 +57,7 @@ public class Formation {
     @Enumerated(EnumType.STRING)
     private TypeCertification typeCertification;
 
+    @NotNull
     private String metiers;
 
     @ManyToOne
