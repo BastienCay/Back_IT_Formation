@@ -1,49 +1,50 @@
 package com.bac.itformation.controller;
 
 import com.bac.itformation.model.Utilisateur;
-import com.bac.itformation.service.UserService;
+import com.bac.itformation.service.UtilisateurService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/utilisateurs")
 @CrossOrigin
-public class UserController {
+public class UtilisateurController {
 
-    private final UserService userService;
+    private final UtilisateurService utilisateurService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UtilisateurController(UtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
     }
 
     @GetMapping("/all")
     public List<Utilisateur> findAll() {
-        return userService.findAll();
+        return utilisateurService.findAll();
     }
 
     @GetMapping("/{id}")
     public Utilisateur findById(@PathVariable Long id) {
-        return userService.findById(id);
+        return utilisateurService.findById(id);
     }
 
     @PostMapping("/add")
     public Utilisateur save(@RequestBody Utilisateur utilisateur) {
-        return userService.save(utilisateur);
+        return utilisateurService.save(utilisateur);
     }
 
     @DeleteMapping("/delete/all")
     public void deleteAll() {
-        userService.deleteAll();
+        utilisateurService.deleteAll();
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
-        userService.deleteById(id);
+        utilisateurService.deleteById(id);
     }
 
     @PatchMapping("/update")
     public Utilisateur update(@RequestBody Utilisateur utilisateur) {
-        return userService.update(utilisateur);
+        return utilisateurService.update(utilisateur);
     }
+
 }

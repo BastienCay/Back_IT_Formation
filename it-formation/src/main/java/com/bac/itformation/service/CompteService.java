@@ -13,11 +13,9 @@ import java.util.List;
 public class CompteService {
 
     private final CompteRepository compteRepository;
-    private final JdbcTemplate jdbcTemplate;
 
-    public CompteService(CompteRepository compteRepository, JdbcTemplate jdbcTemplate) {
+    public CompteService(CompteRepository compteRepository) {
         this.compteRepository = compteRepository;
-        this.jdbcTemplate = jdbcTemplate;
     }
 
     public List<Compte> findAll() {

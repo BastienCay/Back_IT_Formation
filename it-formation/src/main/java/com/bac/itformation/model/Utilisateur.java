@@ -18,7 +18,7 @@ public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
+    private Long idUser;
 
     @NotNull
     @Size(min = 2, max = 50)
@@ -28,6 +28,12 @@ public class Utilisateur {
     @Size(min = 2, max = 50)
     private String prenom;
 
-    @OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
+    @NotNull
+    private String mail;
+
+    @NotNull
+    private String telephone;
+
+    @OneToMany(mappedBy = "utilisateur")
     private List<Compte> comptes;
 }

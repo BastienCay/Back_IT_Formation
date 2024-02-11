@@ -20,13 +20,6 @@ public class Stagiaire {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stagiaireId;
 
-    @NotNull
-    @Email
-    private String mail;
-
-    @NotNull
-    private String telephone;
-
     @ManyToOne
     @JoinColumn(name = "id_user")
     private Utilisateur utilisateur;
