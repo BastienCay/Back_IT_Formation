@@ -11,7 +11,7 @@ public class SessionUserDTO {
 
     private String themeFormation;
 
-    private String dureeFormation;
+    private Integer dureeFormation;
 
     private Date dateDebut;
 

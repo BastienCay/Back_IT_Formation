@@ -10,9 +10,10 @@ import java.util.List;
 @Repository
 public interface SessionFormationRepository extends JpaRepository<SessionFormation, Long> {
 
-    @Query(value = "SELECT sf FROM session_formation sf " +
-            "INNER JOIN stagiaire s ON stagiaire_session_formation.s.id = s.id " +
-            "AND s.id = :id ", nativeQuery = true)
+    @Query(value = "SELECT * FROM session_formation sf " +
+            "inner join stagiaire_session_formation ssf on sf.session_formation_id = ssf.session_formation_id "+
+            "INNER JOIN stagiaire s ON ssf.stagiaire_id = s.stagiaire_id " +
+            "AND s.stagiaire_id = :id ", nativeQuery = true)
     public List<SessionFormation> getSessionByStagiaireId(@Param("id") Long id);
 
 }

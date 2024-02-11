@@ -7,13 +7,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EvaluationRepository  extends JpaRepository<EvaluationStagiaire, Long> {
 
     @Query(value = "SELECT es.isEvaluer FROM EvaluationStagiaire es " +
             "WHERE es.evaluationStagiairePK.sessionFormationId = :id")
-    public boolean isSessionEvaluer(@Param("id") Long id);
+    public Optional<Boolean> isSessionEvaluer(@Param("id") Long id);
 
 
 }
