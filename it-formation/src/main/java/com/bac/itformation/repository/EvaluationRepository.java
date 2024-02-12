@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface EvaluationRepository  extends JpaRepository<EvaluationStagiaire, Long> {
 
     @Query(value = "SELECT es.isEvaluer FROM EvaluationStagiaire es " +
-            "WHERE es.evaluationStagiairePK.sessionFormationId = :id")
+            "WHERE es.sessionFormation.id = :id")
     public Optional<Boolean> isSessionEvaluer(@Param("id") Long id);
 
 

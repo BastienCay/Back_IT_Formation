@@ -18,7 +18,7 @@ public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
+    private Long id;
 
     @NotNull
     @Size(min = 2, max = 50)

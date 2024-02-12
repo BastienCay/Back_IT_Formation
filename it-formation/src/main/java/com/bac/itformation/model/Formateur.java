@@ -18,12 +18,12 @@ public class Formateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long formateurId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
     private Utilisateur utilisateur;
 
-    @ManyToMany(mappedBy = "formateurs", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "formateur")
     private List<SessionFormation> sessionFormations;
 }

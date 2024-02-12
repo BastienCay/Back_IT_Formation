@@ -21,7 +21,7 @@ public class SessionFormation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long sessionFormationId;
+    private Long id;
 
     @NotNull
     @Temporal(TemporalType.DATE)
@@ -35,18 +35,19 @@ public class SessionFormation {
     @ManyToOne
     private Formation formation;
 
-    @ManyToMany
-    @JoinTable(
-            name = "formateur_session_formations",
-            joinColumns = @JoinColumn(name = "session_formation_id"),
-            inverseJoinColumns = @JoinColumn(name = "formateur_id"))
-    private List<Formateur> formateurs;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "sessionFormations")
+    private Formateur formateur;
 
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "stagiaire_session_formation",
-            joinColumns = @JoinColumn(name = "session_formation_id"),
-            inverseJoinColumns = @JoinColumn(name = "stagiaire_id"))
+            joinColumns = @JoinColumn(name = "sessionFormationId"),
+            inverseJoinColumns = @JoinColumn(name = "stagiaireId"))
     private List<Stagiaire> stagiaires;
+
+    @OneToMany(mappedBy="sessionFormation")
+    private List<EvaluationStagiaire> evaluationStagiaires;
 
 }

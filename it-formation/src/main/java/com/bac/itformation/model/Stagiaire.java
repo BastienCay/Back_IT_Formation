@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.Mapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ public class Stagiaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long stagiaireId;
+    private Long id;
 
     @NotNull
     @Email
@@ -31,6 +32,10 @@ public class Stagiaire {
     @JoinColumn(name = "id_user")
     private Utilisateur utilisateur;
 
-    @ManyToMany(mappedBy = "stagiaires", fetch = FetchType.EAGER)
-    private List<SessionFormation> sessionFormations;
+
+    @ManyToMany(mappedBy = "stagiaires")
+    private List<SessionFormation> sessionFormations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "stagiaire")
+    private List<EvaluationStagiaire> evaluationStagiaires;
 }

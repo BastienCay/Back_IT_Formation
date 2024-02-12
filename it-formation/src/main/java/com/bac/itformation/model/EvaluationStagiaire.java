@@ -2,9 +2,12 @@ package com.bac.itformation.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -12,8 +15,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EvaluationStagiaire {
 
-    @EmbeddedId
-    private EvaluationStagiairePK evaluationStagiairePK;
+    @Id
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "stagiaire_id")
+    private Stagiaire stagiaire;
+
+    @ManyToOne
+    @JoinColumn(name = "session_formation_id")
+    private SessionFormation sessionFormation;
+
 
     private Integer noteLocaux;
     private Integer noteFormation;
