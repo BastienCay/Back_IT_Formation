@@ -18,10 +18,10 @@ public class Stagiaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long stagiaireId;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
     @ManyToMany(mappedBy = "stagiaires", fetch = FetchType.EAGER)

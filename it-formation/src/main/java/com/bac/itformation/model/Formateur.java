@@ -18,10 +18,10 @@ public class Formateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long formateurId;
+    private Long Id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
     @ManyToMany(mappedBy = "formateurs", fetch = FetchType.EAGER)

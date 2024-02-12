@@ -21,7 +21,7 @@ public class Compte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCompte;
+    private Long id;
 
     @NotNull
     @Size(min = 8, max = 50)
@@ -35,6 +35,6 @@ public class Compte {
     @Enumerated(EnumType.STRING)
     private TypeDeCompte typeCompte;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Utilisateur utilisateur;
 }
