@@ -1,5 +1,6 @@
 package com.bac.itformation.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -35,6 +36,7 @@ public class Compte {
     @Enumerated(EnumType.STRING)
     private TypeDeCompte typeCompte;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.MERGE})
+    @JsonBackReference
     private Utilisateur utilisateur;
 }

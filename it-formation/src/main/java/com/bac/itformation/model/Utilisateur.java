@@ -35,6 +35,4 @@ public class Utilisateur {
     @NotNull
     private String telephone;
 
-    @OneToMany(mappedBy = "utilisateur")
-    private List<Compte> comptes;
 }
