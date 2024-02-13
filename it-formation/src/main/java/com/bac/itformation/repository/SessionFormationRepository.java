@@ -12,9 +12,9 @@ import java.util.List;
 public interface SessionFormationRepository extends JpaRepository<SessionFormation, Long> {
 
     //Requête
-    @Query(value = "select sf from SessionFormation sf " +
-            "join sf.stagiaires s " +
-            "where s.id = :idStagiaire " )
+    @Query(value = "SELECT sf FROM SessionFormation sf " +
+            "JOIN sf.stagiaires s " +
+            "WHERE s.id = :idStagiaire " )
     List<SessionFormation> getSessionByStagiaireId(@Param ("idStagiaire") Long idStagiaire);
 
 }
