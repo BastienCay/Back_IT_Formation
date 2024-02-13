@@ -26,6 +26,9 @@ public class CompteController {
         return compteService.findById(id);
     }
 
+    @PatchMapping("/{compte}")
+    public Compte findByCompte(@PathVariable Compte compte){return compteService.findByCompte(compte);}
+
     @PostMapping("/add")
     public Compte save(@RequestBody Compte compte) {
         return compteService.save(compte);
@@ -45,4 +48,6 @@ public class CompteController {
     public Compte update(@RequestBody Compte compte) {
         return compteService.update(compte);
     }
+
+
 }

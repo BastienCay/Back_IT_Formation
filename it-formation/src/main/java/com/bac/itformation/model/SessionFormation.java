@@ -41,8 +41,7 @@ public class SessionFormation {
     private Formateur formateur;
 
     @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "stagiaire_session_formation",
+    @JoinTable(name = "stagiaire_session_formation",
             joinColumns = @JoinColumn(name = "sessionFormationId"),
             inverseJoinColumns = @JoinColumn(name = "stagiaireId"))
     private List<Stagiaire> stagiaires;

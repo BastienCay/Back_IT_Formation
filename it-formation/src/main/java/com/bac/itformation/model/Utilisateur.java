@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,10 @@ public class Utilisateur {
     @Size(min = 2, max = 50)
     private String prenom;
 
-    @OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
-    private List<Compte> comptes;
+    @NotNull
+    private String mail;
+
+    @NotNull
+    private String telephone;
+
 }

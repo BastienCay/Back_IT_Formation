@@ -13,11 +13,9 @@ import java.util.List;
 public class CompteService {
 
     private final CompteRepository compteRepository;
-    private final JdbcTemplate jdbcTemplate;
 
-    public CompteService(CompteRepository compteRepository, JdbcTemplate jdbcTemplate) {
+    public CompteService(CompteRepository compteRepository) {
         this.compteRepository = compteRepository;
-        this.jdbcTemplate = jdbcTemplate;
     }
 
     public List<Compte> findAll() {
@@ -26,6 +24,10 @@ public class CompteService {
 
     public Compte findById(Long id) {
         return compteRepository.findById(id).orElseThrow( () -> new NotFoundException("Compte inconnue !"));
+    }
+
+    public Compte findByCompte(Compte compte){
+        return compteRepository.findByMotDePasseAndIdentifiant(compte.getMotDePasse(),compte.getIdentifiant());
     }
 
     public Compte save(Compte compte) { return compteRepository.save(compte);}

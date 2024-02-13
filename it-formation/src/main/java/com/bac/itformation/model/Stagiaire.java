@@ -1,12 +1,10 @@
 package com.bac.itformation.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.Mapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +19,9 @@ public class Stagiaire {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Email
-    private String mail;
-
-    @NotNull
-    private String telephone;
-
-    @ManyToOne
-    @JoinColumn(name = "id_user")
+    @ManyToOne(cascade = {CascadeType.MERGE})
+    @JsonBackReference
     private Utilisateur utilisateur;
-
 
     @ManyToMany(mappedBy = "stagiaires")
     private List<SessionFormation> sessionFormations = new ArrayList<>();
