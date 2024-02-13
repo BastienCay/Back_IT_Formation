@@ -26,8 +26,9 @@ public class CompteController {
         return compteService.findById(id);
     }
 
-    @PatchMapping("/{compte}")
-    public Compte findByCompte(@PathVariable Compte compte){return compteService.findByCompte(compte);}
+    @GetMapping("/find")
+    public Compte findByCompte(@RequestParam String identifiant,@RequestParam String motDePasse){
+        return compteService.findByCompte(identifiant,motDePasse);}
 
     @PostMapping("/add")
     public Compte save(@RequestBody Compte compte) {

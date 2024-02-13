@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
     Compte findByMotDePasseAndIdentifiant(String motDePasse, String identifiant);
+
 }
