@@ -8,13 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
-@Entity
+@Entity(name = "formation")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Formation {
+public class Formation{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
