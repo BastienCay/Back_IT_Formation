@@ -4,10 +4,12 @@ import com.bac.itformation.exception.NotFoundException;
 import com.bac.itformation.model.Stagiaire;
 import com.bac.itformation.repository.StagiaireRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class StagiaireService {
 
     private final StagiaireRepository stagiaireRepository;

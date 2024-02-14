@@ -8,13 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
-@Entity
+@Entity(name = "formation")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Formation {
+public class Formation{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +34,9 @@ public class Formation {
     private String descriptionDetailler;
 
     @NotNull
-    @Size(min = 120, max = 10000)
     private Integer prix;
 
     @NotNull
-    @Size(min = 1, max = 1000)
     private Integer nbrJour;
 
     @NotNull

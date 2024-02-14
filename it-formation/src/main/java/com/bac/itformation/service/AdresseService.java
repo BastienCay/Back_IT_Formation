@@ -27,11 +27,14 @@ public class AdresseService {
         return adresseRepository.findById(id).orElseThrow( () -> new NotFoundException("Adresse inconnue !"));
     }
 
-    public Adresse save(Adresse acteur) { return adresseRepository.save(acteur);}
+    public Adresse save(Adresse adresse) {
+        System.out.println(adresse);
+        return adresseRepository.save(adresse);
+    }
 
 
-    public Adresse update(Adresse acteur) {
-        return adresseRepository.save(acteur);
+    public Adresse update(Adresse adresse) {
+        return adresseRepository.save(adresse);
     }
 
     public void deleteById(Long id) {

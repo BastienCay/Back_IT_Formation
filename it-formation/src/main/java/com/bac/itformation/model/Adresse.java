@@ -23,18 +23,18 @@ public class Adresse {
     private Long id;
 
     @NotNull
-    @Size(min = 0,max = 5)
+    @Size(min = 2,max = 5)
     private String codePostal;
 
     @NotNull
-    @Max(50)
+    @Size(max = 50)
     private String ville;
 
     @NotNull
-    @Max(50)
+    @Size(max = 50)
     private String rue;
 
     @NotNull
-    @Max(50)
+    @Size(max = 50)
     private String pays;
 }
