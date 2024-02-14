@@ -34,11 +34,9 @@ public class Formation{
     private String descriptionDetailler;
 
     @NotNull
-    @Size(min = 120, max = 10000)
     private Integer prix;
 
     @NotNull
-    @Size(min = 1, max = 1000)
     private Integer nbrJour;
 
     @NotNull

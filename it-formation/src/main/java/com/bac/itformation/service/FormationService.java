@@ -10,10 +10,12 @@ import com.bac.itformation.repository.FormationRepository;
 import com.bac.itformation.repository.SousThemeRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class FormationService {
 
     private final FormationRepository formationRepository;
@@ -36,6 +38,7 @@ public class FormationService {
         return formationRepository.findById(id).orElseThrow( () -> new NotFoundException("Formation inconnue !"));
     }
 
+
     public void addFormation(FormationDTO formationDto) {
     Formation formation = new Formation();
         try {
@@ -57,7 +60,6 @@ public class FormationService {
             formation.setReference(formationDto.getReference());
             formation.setTypeCertification(formationDto.getTypeCertification());
             formation.setTypeFormation(formationDto.getTypeFormation());
-
 
             formationRepository.save(formation);
         } catch (Exception e) {

@@ -13,10 +13,10 @@ public class FormationDTO {
     private String descriptionDetaillee;
     private String descriptionMinimum;
     private String metier;
-    private int nbreJour;
+    private Integer nbreJour;
     private String nom;
     private PreRequis prerequis;
-    private int prix;
+    private Integer prix;
     private String reference;
     private TypeCertification typeCertification;
     private TypeFormation typeFormation;
