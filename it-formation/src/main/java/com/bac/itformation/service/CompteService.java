@@ -27,12 +27,7 @@ public class CompteService {
     }
 
     public Compte findByCompte(String identifiant, String motDePasse){
-        System.out.println("===========");
-        System.out.println(identifiant + " " + motDePasse);
-        Compte tmpCompte = compteRepository.findByMotDePasseAndIdentifiant(motDePasse,identifiant);
-        System.out.println(tmpCompte);
-        System.out.println("===========");
-        return tmpCompte;
+        return compteRepository.findByMotDePasseAndIdentifiant(motDePasse,identifiant);
     }
 
     public Compte save(Compte compte) { return compteRepository.save(compte);}
