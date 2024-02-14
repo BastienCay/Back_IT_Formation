@@ -7,10 +7,12 @@ import com.bac.itformation.repository.FormateurRepository;
 import com.bac.itformation.repository.FormateurRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class FormateurService {
 
     private final FormateurRepository formateurRepository;

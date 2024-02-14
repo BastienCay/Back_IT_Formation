@@ -6,10 +6,12 @@ import com.bac.itformation.repository.CompteRepository;
 import com.bac.itformation.repository.CompteRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class CompteService {
 
     private final CompteRepository compteRepository;

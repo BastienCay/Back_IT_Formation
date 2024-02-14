@@ -7,10 +7,12 @@ import com.bac.itformation.repository.SousThemeRepository;
 import com.bac.itformation.repository.SousThemeRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class SousThemeService {
 
     private final SousThemeRepository sousThemeRepository;

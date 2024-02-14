@@ -5,10 +5,12 @@ import com.bac.itformation.model.Utilisateur;
 import com.bac.itformation.repository.UtilisateurRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UtilisateurService {
 
     private final UtilisateurRepository utilisateurRepository;

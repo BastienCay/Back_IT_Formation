@@ -5,10 +5,12 @@ import com.bac.itformation.model.SousSousTheme;
 import com.bac.itformation.repository.SousSousThemeRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class SousSousThemeService {
 
     private final SousSousThemeRepository sousSousThemeRepository;
