@@ -34,7 +34,7 @@ public class Compte {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private TypeDeCompte typeCompte;
+    private TypeDeCompte typeCompte = TypeDeCompte.Users_Normal;
 
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JsonBackReference

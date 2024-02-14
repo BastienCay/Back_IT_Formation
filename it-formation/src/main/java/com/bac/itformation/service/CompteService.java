@@ -26,8 +26,8 @@ public class CompteService {
         return compteRepository.findById(id).orElseThrow( () -> new NotFoundException("Compte inconnue !"));
     }
 
-    public Compte findByCompte(Compte compte){
-        return compteRepository.findByMotDePasseAndIdentifiant(compte.getMotDePasse(),compte.getIdentifiant());
+    public Compte findByCompte(String identifiant, String motDePasse){
+        return compteRepository.findByMotDePasseAndIdentifiant(motDePasse,identifiant);
     }
 
     public Compte save(Compte compte) { return compteRepository.save(compte);}
