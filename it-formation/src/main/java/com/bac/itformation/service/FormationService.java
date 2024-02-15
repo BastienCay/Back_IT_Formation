@@ -3,6 +3,7 @@ package com.bac.itformation.service;
 import com.bac.itformation.dto.FormationDTO;
 import com.bac.itformation.exception.NotFoundException;
 import com.bac.itformation.model.Adresse;
+import com.bac.itformation.model.Formateur;
 import com.bac.itformation.model.Formation;
 import com.bac.itformation.model.SousTheme;
 import com.bac.itformation.repository.AdresseRepository;
@@ -38,6 +39,19 @@ public class FormationService {
         return formationRepository.findById(id).orElseThrow( () -> new NotFoundException("Formation inconnue !"));
     }
 
+    @Transactional(noRollbackForClassName = "FormationService")
+    public Formation save(Formation formation) {
+
+        if(formation.getAdresse().getId() == null){
+            formation.setAdresse(adresseRepository.findByVille(formation.getAdresse().getVille()));
+        }
+
+        if (formation.getSousTheme().getId() == null){
+            formation.setSousTheme(sousThemeRepository.findByDesignation(formation.getSousTheme().getDesignation()));
+        }
+
+        return formationRepository.save(formation);
+    }
 
     public void addFormation(FormationDTO formationDto) {
     Formation formation = new Formation();

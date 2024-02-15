@@ -27,11 +27,15 @@ public class ThemeService {
         return themeRepository.findAll();
     }
 
+    public Theme findByDesignation(String designation) {
+        return themeRepository.findByDesignation(designation);
+    }
     public Theme findById(Long id) {
         return themeRepository.findById(id).orElseThrow( () -> new NotFoundException("Theme inconnue !"));
     }
 
     public Theme save(Theme theme) { return themeRepository.save(theme);}
+
 
 
     public Theme update(Theme theme) {

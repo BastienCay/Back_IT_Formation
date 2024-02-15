@@ -12,4 +12,7 @@ public interface SousThemeRepository extends JpaRepository<SousTheme, Long> {
     @Query("SELECT sousTheme FROM SousTheme sousTheme " +
             "WHERE sousTheme.id = :id")
     SousTheme getSousThemeById (@Param("id") Long id);
+
+    SousTheme findByDesignation(String designation);
 }
+

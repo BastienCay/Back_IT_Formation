@@ -11,4 +11,6 @@ public interface AdresseRepository extends JpaRepository<Adresse, Long> {
     @Query(value = "SELECT adresse from Adresse adresse " +
             "WHERE adresse.id = :id")
     Adresse getAdresseById (@Param("id") Long id);
+
+    Adresse findByVille(String ville);
 }

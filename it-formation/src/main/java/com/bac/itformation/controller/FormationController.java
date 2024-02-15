@@ -29,9 +29,10 @@ public class FormationController {
     }
 
     @PostMapping("/add")
-    public void addFormation (@RequestBody FormationDTO formationDto) {
+    public void addFormation (@RequestBody Formation formation) {
 
-        formationService.addFormation(formationDto);
+     //   formationService.addFormation(formationDto);
+        formationService.save(formation);
     }
 
     @DeleteMapping("/delete/all")
