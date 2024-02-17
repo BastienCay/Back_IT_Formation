@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity(name = "formation")
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,7 +26,7 @@ public class Formation{
     private String nom;
 
     @NotNull
-    @Size(min = 10, max = 200)
+    @Size(max = 200)
     private String descriptionMinimum;
 
     @NotNull

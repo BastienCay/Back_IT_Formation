@@ -37,7 +37,7 @@ public class SessionFormation {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "sessionFormations")
+    @JoinColumn(name = "formateurId")
     private Formateur formateur;
 
     @ManyToMany(cascade = { CascadeType.ALL })

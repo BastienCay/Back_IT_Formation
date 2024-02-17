@@ -28,8 +28,9 @@ public class SessionFormationController {
     }
 
     @PostMapping("/add")
-    public SessionFormation save(@RequestBody SessionFormation sessionFormation) {
-        return sessionFormationService.save(sessionFormation);
+    public SessionFormation addSessionFormation(@RequestBody SessionFormation sessionFormation) {
+
+        return sessionFormationService.addSessionFormation(sessionFormation);
     }
 
     @DeleteMapping("/delete/all")
