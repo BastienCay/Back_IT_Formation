@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SessionFormation implements Serializable {
+public class SessionFormation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,18 +37,18 @@ public class SessionFormation implements Serializable {
     private Formation formation;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "formateurId")
     @JsonIgnore
     private Formateur formateur;
 
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(name = "stagiaire_session_formation",
             joinColumns = @JoinColumn(name = "sessionFormationId"),
             inverseJoinColumns = @JoinColumn(name = "stagiaireId"))
     private List<Stagiaire> stagiaires;
 
-    @OneToMany(mappedBy="sessionFormation", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="sessionFormation")
     private List<EvaluationStagiaire> evaluationStagiaires;
 
 }

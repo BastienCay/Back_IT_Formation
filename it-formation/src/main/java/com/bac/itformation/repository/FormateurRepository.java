@@ -17,4 +17,8 @@ public interface FormateurRepository extends JpaRepository<Formateur, Long> {
             "JOIN f.sessionFormations fs "+
             "WHERE fs.formation.id = :idFormation")
     Formateur getFormateurFromFormation(@Param("idFormation") Long idFormation);
+
+    @Query("SELECT f FROM Formateur f " +
+            "WHERE f.utilisateur.telephone = :telephone")
+    Formateur getFormateurByTelephone (@Param("telephone")String telephone);
 }

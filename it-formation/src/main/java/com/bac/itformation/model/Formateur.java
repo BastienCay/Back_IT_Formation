@@ -21,7 +21,6 @@ public class Formateur implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
-    @JsonIgnore
     private Utilisateur utilisateur;
 
     @OneToMany(mappedBy = "formateur")

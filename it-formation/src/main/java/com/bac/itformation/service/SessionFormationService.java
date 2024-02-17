@@ -40,12 +40,12 @@ public class SessionFormationService {
         return sessionRepository.findById(id).orElseThrow( () -> new NotFoundException("Session inconnue !"));
     }
 
-    public SessionFormation addSessionFormation(@RequestBody SessionFormation sessionFormation) {
+    public SessionFormation addSessionFormation(String telephone, SessionFormation sessionFormation) {
 
         if (sessionFormation.getFormation().getId() == null) {
             sessionFormation.setFormation(formationRepository.getFormationByRef(sessionFormation.getFormation().getReference()));
         }
-        Formateur formateur = formateurRepository.getFormateurFromFormation(sessionFormation.getFormation().getId());
+        Formateur formateur = formateurRepository.getFormateurByTelephone(telephone);
         sessionFormation.setFormateur(formateur);
         return sessionRepository.save(sessionFormation);
     }

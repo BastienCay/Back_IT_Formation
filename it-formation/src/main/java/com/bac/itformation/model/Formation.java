@@ -30,7 +30,7 @@ public class Formation{
     private String descriptionMinimum;
 
     @NotNull
-    @Size(min = 10, max = 600)
+    @Size(max = 600)
     private String descriptionDetailler;
 
     @NotNull
