@@ -1,10 +1,13 @@
 package com.bac.itformation.controller;
 
 import com.bac.itformation.model.SessionFormation;
+import com.bac.itformation.model.Stagiaire;
 import com.bac.itformation.service.SessionFormationService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/sessions-formations")
@@ -28,9 +31,16 @@ public class SessionFormationController {
     }
 
     @PostMapping("/add")
-    public SessionFormation addSessionFormation(@RequestBody SessionFormation sessionFormation) {
+    public SessionFormation addSessionFormation( @RequestBody SessionFormation sessionFormation) {
+
 
         return sessionFormationService.addSessionFormation(sessionFormation);
+    }
+    @PostMapping("/inscription-stagiaire/{idSession}")
+    public SessionFormation addStagiaire(@PathVariable Long idSession, @RequestParam String nom) {
+        Objects.requireNonNull(idSession, "L'id de Session ne peut pas être null");
+
+        return sessionFormationService.addStagiaire(idSession, nom);
     }
 
     @DeleteMapping("/delete/all")

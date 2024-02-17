@@ -1,17 +1,19 @@
 package com.bac.itformation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Formateur {
+public class Formateur implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +21,7 @@ public class Formateur {
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
+    @JsonIgnore
     private Utilisateur utilisateur;
 
     @OneToMany(mappedBy = "formateur")
