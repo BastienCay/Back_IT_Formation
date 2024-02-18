@@ -25,11 +25,11 @@ public class Compte {
     private Long id;
 
     @NotNull
-    @Size(min = 8, max = 50)
+    @Size(min = 6, max = 50)
     private String motDePasse;
 
     @NotNull
-    @Size(min = 8, max = 50)
+    @Size(min = 4, max = 50)
     private String identifiant;
 
     @NotNull
