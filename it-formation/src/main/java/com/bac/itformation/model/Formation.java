@@ -26,11 +26,11 @@ public class Formation{
     private String nom;
 
     @NotNull
-    @Size(max = 200)
+    @Size(max = 300)
     private String descriptionMinimum;
 
     @NotNull
-    @Size(max = 600)
+    @Size(max = 1000)
     private String descriptionDetailler;
 
     @NotNull
