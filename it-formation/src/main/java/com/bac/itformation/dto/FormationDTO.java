@@ -5,9 +5,11 @@ import com.bac.itformation.model.TypeCertification;
 import com.bac.itformation.model.TypeFormation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class FormationDTO {
 
     private String descriptionDetaillee;

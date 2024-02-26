@@ -1,8 +1,7 @@
 package com.bac.itformation.controller;
 
-import com.bac.itformation.dto.FormationDTO;
 import com.bac.itformation.model.Formation;
-import com.bac.itformation.service.FormationService;
+import com.bac.itformation.service.serviceImpl.FormationServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,41 +11,41 @@ import java.util.List;
 @CrossOrigin
 public class FormationController {
 
-    private final FormationService formationService;
+    private final FormationServiceImpl formationServiceImpl;
 
-    public FormationController(FormationService formationService) {
-        this.formationService = formationService;
+    public FormationController(FormationServiceImpl formationServiceImpl) {
+        this.formationServiceImpl = formationServiceImpl;
     }
 
     @GetMapping("/all")
     public List<Formation> findAll() {
-        return formationService.findAll();
+        return formationServiceImpl.findAll();
     }
 
     @GetMapping("/{id}")
     public Formation findById(@PathVariable Long id) {
-        return formationService.findById(id);
+        return formationServiceImpl.findById(id);
     }
 
     @PostMapping("/add")
     public void addFormation (@RequestBody Formation formation) {
 
      //   formationService.addFormation(formationDto);
-        formationService.save(formation);
+        formationServiceImpl.save(formation);
     }
 
     @DeleteMapping("/delete/all")
     public void deleteAll() {
-        formationService.deleteAll();
+        formationServiceImpl.deleteAll();
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
-        formationService.deleteById(id);
+        formationServiceImpl.deleteById(id);
     }
 
     @PatchMapping("/update")
     public Formation update(@RequestBody Formation formation) {
-        return formationService.update(formation);
+        return formationServiceImpl.update(formation);
     }
 }
