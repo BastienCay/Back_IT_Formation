@@ -1,7 +1,7 @@
 package com.bac.itformation.controller;
 
 import com.bac.itformation.model.Adresse;
-import com.bac.itformation.service.AdresseService;
+import com.bac.itformation.service.serviceImpl.AdresseServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,41 +9,41 @@ import java.util.List;
 @RestController
 @RequestMapping("/adresses")
 @CrossOrigin
-public class AdresseController {
+public class  AdresseController {
 
-    private final AdresseService adresseService;
+    private final AdresseServiceImpl adresseServiceImpl;
 
-    public AdresseController(AdresseService adresseService) {
-        this.adresseService = adresseService;
+    public AdresseController(AdresseServiceImpl adresseServiceImpl) {
+        this.adresseServiceImpl = adresseServiceImpl;
     }
 
     @GetMapping("/all")
     public List<Adresse> findAll() {
-        return adresseService.findAll();
+        return adresseServiceImpl.findAll();
     }
 
     @GetMapping("/{id}")
     public Adresse findById(@PathVariable Long id) {
-        return adresseService.findById(id);
+        return adresseServiceImpl.findById(id);
     }
 
     @PostMapping("/add")
     public Adresse save(@RequestBody Adresse adresse) {
-        return adresseService.save(adresse);
+        return adresseServiceImpl.save(adresse);
     }
 
     @DeleteMapping("/delete/all")
     public void deleteAll() {
-        adresseService.deleteAll();
+        adresseServiceImpl.deleteAll();
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
-        adresseService.deleteById(id);
+        adresseServiceImpl.deleteById(id);
     }
 
     @PatchMapping("/update")
     public Adresse update(@RequestBody Adresse adresse) {
-        return adresseService.update(adresse);
+        return adresseServiceImpl.update(adresse);
     }
 }
