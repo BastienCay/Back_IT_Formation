@@ -1,5 +1,6 @@
 package com.bac.itformation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -38,6 +39,7 @@ public class SessionFormation {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "formateurId")
+    @JsonIgnore
     private Formateur formateur;
 
     @ManyToMany(cascade = { CascadeType.ALL })
