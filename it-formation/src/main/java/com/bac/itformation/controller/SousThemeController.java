@@ -1,7 +1,8 @@
 package com.bac.itformation.controller;
 
+import com.bac.itformation.dto.SousThemeDTO;
 import com.bac.itformation.model.SousTheme;
-import com.bac.itformation.service.SousThemeService;
+import com.bac.itformation.service.serviceImpl.SousThemeServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,39 +12,39 @@ import java.util.List;
 @CrossOrigin
 public class SousThemeController {
 
-    private final SousThemeService sousThemeService;
+    private final SousThemeServiceImpl sousThemeServiceImpl;
 
-    public SousThemeController(SousThemeService sousThemeService) {
-        this.sousThemeService = sousThemeService;
+    public SousThemeController(SousThemeServiceImpl sousThemeServiceImpl) {
+        this.sousThemeServiceImpl = sousThemeServiceImpl;
     }
 
     @GetMapping("/all")
     public List<SousTheme> findAll() {
-        return sousThemeService.findAll();
+        return sousThemeServiceImpl.findAll();
     }
 
     @GetMapping("/{id}")
     public SousTheme findById(@PathVariable Long id) {
-        return sousThemeService.findById(id);
+        return sousThemeServiceImpl.findById(id);
     }
 
     @PostMapping("/add")
-    public SousTheme save(@RequestBody SousTheme sousTheme) {
-        return sousThemeService.save(sousTheme);
+    public void save(@RequestBody SousThemeDTO sousThemeDto) {
+        sousThemeServiceImpl.addSousTheme(sousThemeDto);
     }
 
     @DeleteMapping("/delete/all")
     public void deleteAll() {
-        sousThemeService.deleteAll();
+        sousThemeServiceImpl.deleteAll();
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
-        sousThemeService.deleteById(id);
+        sousThemeServiceImpl.deleteById(id);
     }
 
     @PatchMapping("/update")
     public SousTheme update(@RequestBody SousTheme sousTheme) {
-        return sousThemeService.update(sousTheme);
+        return sousThemeServiceImpl.update(sousTheme);
     }
 }

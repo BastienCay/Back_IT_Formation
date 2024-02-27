@@ -1,8 +1,8 @@
 package com.bac.itformation.controller;
 
+import com.bac.itformation.dto.ThemeDTO;
 import com.bac.itformation.model.Theme;
-import com.bac.itformation.service.ThemeService;
-import com.bac.itformation.service.ThemeService;
+import com.bac.itformation.service.serviceImpl.ThemeServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,41 +12,39 @@ import java.util.List;
 @CrossOrigin
 public class ThemeController {
 
-    private final ThemeService themeService;
+    private final ThemeServiceImpl themeServiceImpl;
 
-    public ThemeController(ThemeService themeService) {
-        this.themeService = themeService;
+    public ThemeController(ThemeServiceImpl themeServiceImpl) {
+        this.themeServiceImpl = themeServiceImpl;
     }
 
     @GetMapping("/all")
     public List<Theme> findAll() {
-        return themeService.findAll();
+        return themeServiceImpl.findAll();
     }
 
     @GetMapping("/{id}")
     public Theme findById(@PathVariable Long id) {
-        return themeService.findById(id);
+        return themeServiceImpl.findById(id);
     }
 
-
-
     @PostMapping("/add")
-    public Theme save(@RequestBody Theme theme) {
-        return themeService.save(theme);
+    public void save(@RequestBody ThemeDTO themeDto) {
+        themeServiceImpl.addTheme(themeDto);
     }
 
     @DeleteMapping("/delete/all")
     public void deleteAll() {
-        themeService.deleteAll();
+        themeServiceImpl.deleteAll();
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
-        themeService.deleteById(id);
+        themeServiceImpl.deleteById(id);
     }
 
     @PatchMapping("/update")
     public Theme update(@RequestBody Theme theme) {
-        return themeService.update(theme);
+        return themeServiceImpl.update(theme);
     }
 }
