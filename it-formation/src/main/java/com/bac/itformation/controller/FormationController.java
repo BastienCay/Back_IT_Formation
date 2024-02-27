@@ -1,5 +1,6 @@
 package com.bac.itformation.controller;
 
+import com.bac.itformation.dto.FormationDTO;
 import com.bac.itformation.model.Formation;
 import com.bac.itformation.service.serviceImpl.FormationServiceImpl;
 import org.springframework.web.bind.annotation.*;
@@ -28,10 +29,10 @@ public class FormationController {
     }
 
     @PostMapping("/add")
-    public void addFormation (@RequestBody Formation formation) {
+    public void addFormation (@RequestBody FormationDTO formationDto) {
 
-     //   formationService.addFormation(formationDto);
-        formationServiceImpl.save(formation);
+        formationServiceImpl.addFormation(formationDto);
+//        formationServiceImpl.save(formation);
     }
 
     @DeleteMapping("/delete/all")

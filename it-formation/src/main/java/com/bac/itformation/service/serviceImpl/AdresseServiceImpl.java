@@ -35,12 +35,16 @@ public class AdresseServiceImpl implements AdresseService {
     public void addAdresse(AdresseDTO adresseDto) {
         Adresse adresse = new Adresse();
 
-        adresse.setCodePostal(adresseDto.getCodePostal());
-        adresse.setVille(adresseDto.getVille());
-        adresse.setRue(adresseDto.getRue());
-        adresse.setPays(adresseDto.getPays());
+        try {
+            adresse.setCodePostal(adresseDto.getCodePostal());
+            adresse.setVille(adresseDto.getVille());
+            adresse.setRue(adresseDto.getRue());
+            adresse.setPays(adresseDto.getPays());
 
+            adresseRepository.save(adresse);
+        }catch (Exception e){
 
+        }
     }
 
     @Override

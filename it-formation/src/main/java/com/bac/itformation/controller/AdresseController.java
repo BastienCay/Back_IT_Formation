@@ -1,5 +1,6 @@
 package com.bac.itformation.controller;
 
+import com.bac.itformation.dto.AdresseDTO;
 import com.bac.itformation.model.Adresse;
 import com.bac.itformation.service.serviceImpl.AdresseServiceImpl;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +29,9 @@ public class  AdresseController {
     }
 
     @PostMapping("/add")
-    public Adresse save(@RequestBody Adresse adresse) {
-        return adresseServiceImpl.save(adresse);
+    public void save(@RequestBody AdresseDTO adresseDto) {
+        adresseServiceImpl.addAdresse(adresseDto);
+//        return adresseServiceImpl.save(adresse);
     }
 
     @DeleteMapping("/delete/all")
