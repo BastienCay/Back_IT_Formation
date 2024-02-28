@@ -1,10 +1,8 @@
 package com.bac.itformation.controller;
 
+import com.bac.itformation.dto.SessionFormationDTO;
 import com.bac.itformation.model.SessionFormation;
-import com.bac.itformation.model.Stagiaire;
-import com.bac.itformation.service.SessionFormationService;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.MediaType;
+import com.bac.itformation.service.serviceImpl.SessionFormationServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,47 +13,45 @@ import java.util.Objects;
 @CrossOrigin(origins = "http://localhost:4200")
 public class SessionFormationController {
 
-    private final SessionFormationService sessionFormationService;
+    private final SessionFormationServiceImpl sessionFormationServiceImpl;
 
-    public SessionFormationController(SessionFormationService sessionFormationService) {
-        this.sessionFormationService = sessionFormationService;
+    public SessionFormationController(SessionFormationServiceImpl sessionFormationServiceImpl) {
+        this.sessionFormationServiceImpl = sessionFormationServiceImpl;
     }
 
     @GetMapping("/all")
     public List<SessionFormation> findAll() {
-        return sessionFormationService.findAll();
+        return sessionFormationServiceImpl.findAll();
     }
 
     @GetMapping("/{id}")
     public SessionFormation findById(@PathVariable Long id) {
-        return sessionFormationService.findById(id);
+        return sessionFormationServiceImpl.findById(id);
     }
 
     @PostMapping(value = "/add")
-    public SessionFormation addSessionFormation(@RequestParam String telephone, @RequestBody SessionFormation sessionFormation) {
-
-
-        return sessionFormationService.addSessionFormation(telephone, sessionFormation);
+    public SessionFormation addSessionFormation(@RequestBody SessionFormationDTO sessionFormationDto) {
+        return sessionFormationServiceImpl.addSessionFormation(sessionFormationDto);
     }
     @PostMapping("/inscription-stagiaire/{idSession}")
     public SessionFormation addStagiaire(@PathVariable Long idSession, @RequestParam String nom) {
         Objects.requireNonNull(idSession, "L'id de Session ne peut pas être null");
 
-        return sessionFormationService.addStagiaire(idSession, nom);
+        return sessionFormationServiceImpl.addStagiaire(idSession, nom);
     }
 
     @DeleteMapping("/delete/all")
     public void deleteAll() {
-        sessionFormationService.deleteAll();
+        sessionFormationServiceImpl.deleteAll();
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
-        sessionFormationService.deleteById(id);
+        sessionFormationServiceImpl.deleteById(id);
     }
 
     @PatchMapping("/update")
     public SessionFormation update(@RequestBody SessionFormation sessionFormation) {
-        return sessionFormationService.update(sessionFormation);
+        return sessionFormationServiceImpl.update(sessionFormation);
     }
 }

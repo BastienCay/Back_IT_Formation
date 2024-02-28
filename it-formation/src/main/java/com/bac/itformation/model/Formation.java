@@ -64,4 +64,7 @@ public class Formation{
 
     @ManyToOne
     private SousTheme sousTheme;
+
+    @OneToMany(mappedBy = "formation")
+    private List<SessionFormation> sessionFormations;
 }

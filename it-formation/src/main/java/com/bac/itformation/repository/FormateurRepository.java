@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FormateurRepository extends JpaRepository<Formateur, Long> {
     @Query("SELECT formateur FROM Formateur formateur " +
+            "WHERE formateur.id = :id ")
+    Formateur getFormateurById(@Param("id") Long id);
+
+    @Query("SELECT formateur FROM Formateur formateur " +
             "WHERE formateur.utilisateur.id = :userId ")
     Formateur getFormateurByUserId(@Param("userId") Long userId);
 

@@ -34,12 +34,12 @@ public class SessionFormation {
 
     @NotNull
     @ManyToOne
+    @JoinColumn(name = "formationId")
     private Formation formation;
 
     @NotNull
     @ManyToOne
     @JoinColumn(name = "formateurId")
-    @JsonIgnore
     private Formateur formateur;
 
     @ManyToMany(cascade = { CascadeType.ALL })
